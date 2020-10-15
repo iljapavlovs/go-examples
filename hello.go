@@ -1,17 +1,20 @@
 // first line needs to be a package
-// project needs to have main package if you want to execute it
+// project needs to have MAIN package if you want to execute it
 package main
 
+//factored import statement, can be "import "fmt""
 import (
 	"errors"
 	// functions related to input and output
 	"fmt"
+	"go-examples/exportednames"
 	"math"
 )
 
-// program starts in function main in package main?
+// program starts in function MAIN in package MAIN
 func main() {
 	fmt.Println("Hello World!")
+
 	variables()
 	arrays()
 	maps()
