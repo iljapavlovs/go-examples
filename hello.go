@@ -137,6 +137,7 @@ func sqrt(x float64) (float64, error) {
 	}
 	// if error NOT occurred, then err will be NIL
 	return math.Sqrt(x), nil
+
 }
 
 //STRUCT - collection of fields so you can group things together in a more logical type
