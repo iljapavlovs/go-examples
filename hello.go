@@ -5,9 +5,11 @@ package main
 //factored import statement, can be "import "fmt""
 import (
 	"errors"
+	"example.com/greetings/exportednames"
+
 	// functions related to input and output
 	"fmt"
-	"go-examples/exportednames"
+	//"go-examples/exportednames"
 	"math"
 )
 
@@ -19,7 +21,17 @@ func main() {
 	arrays()
 	maps()
 	loops()
+	//FUNCTIONS
+	// exported names from a diff package
+	exportednames.SomeFunctionThatCanBeExported()
+	//Notice that the type comes after the variable name
 	fmt.Println(sum(3, 5))
+	//When two or more consecutive named function parameters share a type,
+	//you can omit the type from all but the last.
+	fmt.Println(add(3, 5))
+	// EXAMPLE OF A FUNCTION RETURNING MULTIPLE RESULTS
+	a, b := swap("hello", "world")
+	fmt.Println(a, b)
 
 	// sqrt() returns 2 values
 	// if error occurred, then err will NOT be NIL
@@ -115,11 +127,6 @@ func loops() {
 
 }
 
-func sum(x int, y int) int {
-	return x + y
-}
-
-// functions can return multiple values
 // if error occurred, then err will NOT be NIL
 // if error NOT occurred, then err will be NIL
 // Go DOES NOT HAVE EXCEPTIONS
