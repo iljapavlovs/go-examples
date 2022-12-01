@@ -1,9 +1,10 @@
 package main
 
 import (
+	"fmt"
+
 	//PACKAGES! - last name - is the name of the package
 	"example.com/greetings/exportednames"
-	"fmt"
 )
 
 func main() {
@@ -29,8 +30,8 @@ func sum(x int, y int) int {
 	return x + y
 }
 
-//When two or more consecutive named function parameters share a type,
-//you can omit the type from all but the last.
+// When two or more consecutive named function parameters share a type,
+// you can omit the type from all but the last.
 func add(x, y int) int {
 	return x + y
 }
@@ -40,12 +41,12 @@ func swap(x, y string) (string, string) {
 	return y, x
 }
 
-//Named return values
-//Go's return values may be named. If so, they are treated as variables defined at the top of the function.
+// Named return values
+// Go's return values may be named. If so, they are treated as variables defined at the top of the function.
 //
-//These names should be used to document the meaning of the return values.!!!
+// These names should be used to document the meaning of the return values.!!!
 //
-//A return statement without arguments returns the named return values. This is known as a "naked" return
+// A return statement without arguments returns the named return values. This is known as a "naked" return
 func split(sum int) (x, y int) {
 	x = sum * 4 / 9
 	y = sum - x
