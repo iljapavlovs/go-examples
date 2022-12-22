@@ -6,7 +6,6 @@ package main
 import (
 	"errors"
 	"example.com/greetings/exportednames"
-
 	// functions related to input and output
 	"fmt"
 	//"go-examples/exportednames"
@@ -25,13 +24,13 @@ func main() {
 	// exported names from a diff package
 	exportednames.SomeFunctionThatCanBeExported()
 	//Notice that the type comes after the variable name
-	fmt.Println(sum(3, 5))
+	//fmt.Println(functions.Sum(3, 5))
 	//When two or more consecutive named function parameters share a type,
 	//you can omit the type from all but the last.
-	fmt.Println(add(3, 5))
+	//fmt.Println(functions.Add(3, 5))
 	// EXAMPLE OF A FUNCTION RETURNING MULTIPLE RESULTS
-	a, b := swap("hello", "world")
-	fmt.Println(a, b)
+	//a, b := functions.Swap("hello", "world")
+	//fmt.Println(a, b)
 
 	// sqrt() returns 2 values
 	// if error occurred, then err will NOT be NIL
@@ -139,7 +138,7 @@ func sqrt(x float64) (float64, error) {
 	return math.Sqrt(x), nil
 }
 
-//STRUCT - collection of fields so you can group things together in a more logical type
+// STRUCT - collection of fields so you can group things together in a more logical type
 type person struct {
 	name string
 	age  int
