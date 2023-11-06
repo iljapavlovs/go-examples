@@ -34,4 +34,26 @@ func main() {
 
 	fmt.Println("6e16", int64(6e16))
 
+	convertBigFloatToBigInt()
+
+}
+
+func convertBigFloatToBigInt() {
+	result := new(big.Int)
+
+	//NEED TO SET .SetPrec(100) to get the correct result
+	//https://stackoverflow.com/questions/52160754/strange-loss-of-precision-multiplying-big-float
+	//https://stackoverflow.com/questions/56133476/precision-issue-of-golang-big-float
+	lowResult, accuracyForLow := new(big.Float).Mul(big.NewFloat(0.000000000000000001), big.NewFloat(1e18)).Int(new(big.Int))
+	highResult, accuracyForHigh := new(big.Float).SetPrec(100).Mul(big.NewFloat(10000000000000000), big.NewFloat(1e18)).Int(new(big.Int))
+
+	fmt.Println("result", result)
+	fmt.Println("accuracyForLow", accuracyForLow)
+
+	fmt.Println("lowResult", lowResult)
+	fmt.Println("highResult", highResult)
+	fmt.Println("highResult", highResult.String())
+
+	fmt.Println("accuracyForHigh", accuracyForHigh)
+	//99999999999999991611392
 }
