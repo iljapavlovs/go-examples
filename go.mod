@@ -3,6 +3,7 @@ module example.com/greetings
 go 1.18
 
 require (
+	github.com/pelletier/go-toml/v2 v2.1.0
 	go.uber.org/ratelimit v0.2.0
 	golang.org/x/sync v0.2.0
 )
