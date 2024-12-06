@@ -1,10 +1,11 @@
 package main
 
 import (
-	"example.com/greetings/files"
 	"fmt"
-	"github.com/pelletier/go-toml/v2"
 	"os"
+
+	"example.com/greetings/files"
+	"github.com/pelletier/go-toml/v2"
 )
 
 func main() {
@@ -21,10 +22,17 @@ func main() {
 	}
 
 	//creates temp file which is deleted after the program exits
-	tempFile, err := os.CreateTemp("", "node_config")
+	tempFile, err := os.CreateTemp("", "node_config") //	os.CreateTemp appends random numbers to the file name to ensure uniqueness and security.
 	if err != nil {
 		panic(err)
 	}
+	fmt.Printf("Created temp file: %s\n", tempFile.Name())
+
+	nonTempFile, err := os.Create("node_config") //	os.CreateTemp appends random numbers to the file name to ensure uniqueness and security.
+	if err != nil {
+		panic(err)
+	}
+	fmt.Printf("Created non-temp file: %s\n", nonTempFile.Name())
 	data, err := toml.Marshal(tomlModel)
 	if err != nil {
 		panic(err)
@@ -33,6 +41,8 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+
+	fmt.Printf("Wrote to file: %s\n", tempFile.Name())
 
 	_, err = realFile.WriteString(string(data))
 	if err != nil {

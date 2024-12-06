@@ -39,6 +39,10 @@ func main() {
 
 	convertBigIntToBigFloat()
 
+	gas := 2_900_000
+	result := gas / 500_000
+	fmt.Println("result", result)
+
 }
 
 func convertBigFloatToBigInt() {
